@@ -132,12 +132,8 @@ Widget build(BuildContext context) {
                     borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(10),
                     topRight: Radius.circular(10),
-                  ))
-                  ,child:Text(
-                    frequency,
-                    style:const TextStyle(color: Colors.white,fontWeight: FontWeight.w100,fontSize: 12)
-                  )
-                  ),
+                  )),
+                ),
                 Container(
                 decoration: const BoxDecoration(
                   color: Colors.white,
@@ -190,9 +186,11 @@ Widget build(BuildContext context) {
                   children: [
                     const Row(children: [Padding(
                       padding: EdgeInsets.all(10),
-                      child:Icon(Icons.edit_rounded)),Padding(
+                      child:Checkbox.adaptive(value: false, onChanged:null,
+                       )),Padding(
                       padding: EdgeInsets.all(10),
-                      child:Icon(Icons.info_rounded))],),
+                      child:Icon(Icons.edit_rounded)
+                      ,)],),
                       Expanded(
                         flex:2,
                         child:Padding(

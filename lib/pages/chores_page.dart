@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import '../classes/user.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myapp/classes/house_hold.dart';
 import 'package:myapp/methods/get_chores_data.dart';
 import '../interfaces/card_modules.dart';
-import '../variables/global_variables.dart';
 import '../methods/fetch_data.dart';
 class ChorePage extends StatefulWidget {
   /// Constructs a [ChorePage].
@@ -19,7 +19,6 @@ class ChorePageState extends State<ChorePage> {
   HouseHold myHouse = getHouse();
   @override
   Widget build(BuildContext context) {
-    String myHouseName = myHouse.householdName;
     List<String> names = getNames(myHouse.chores);
     List<String> frequencies = getFrequency(myHouse.chores);
     List<Color> colors = getChoreColors(myHouse.chores);
@@ -28,7 +27,18 @@ class ChorePageState extends State<ChorePage> {
     return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: true,
-          title: Text("$myHouseName: Chores"),
+          title: const Text("Chores"),
+          actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: IconButton(
+            onPressed: () => context.go('chores/add'),
+            icon: const Icon(Icons.add_rounded))),
+            Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: IconButton(
+            onPressed: () => context.go('chores/filter'),
+            icon:const Icon(Icons.filter_alt_rounded)))],
         ),
         body: Center(
           child: CustomScrollView(
@@ -49,24 +59,6 @@ class ChorePageState extends State<ChorePage> {
           ],
           )
         ),
-        floatingActionButton: Align(
-            alignment: Alignment.bottomLeft,
-            child: Padding(
-                padding: const EdgeInsets.only(left: 32),
-                child: SizedBox(
-                    width: minCalendarSize,
-                    height: minCalendarSize,
-                    child: Center(
-                      child: ElevatedButton(
-                          onPressed: () => context.go('names/add'),
-                          style: ElevatedButton.styleFrom(
-                              padding: const EdgeInsets.only(left: -10),
-                              minimumSize: const Size.square(minCalendarSize),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(
-                                    10), // Adjust the value as needed
-                              )),
-                          child: const Icon(Icons.add)),
-                    )))));
+                    );
   }
 }

@@ -50,16 +50,18 @@ Widget build(BuildContext context) {
                 child:Row(
                   mainAxisAlignment:MainAxisAlignment.spaceBetween,
                   children: [
-                    Padding(
+                    Expanded( 
+                      child:Padding(
                       padding: const EdgeInsets.all(15),
                       child: Text(name,
                           style:
-                              const TextStyle(fontSize: 20, fontWeight: FontWeight.w100))),
-                      Padding(
+                              const TextStyle(fontSize: 20, fontWeight: FontWeight.w100)))),
+                    Expanded( 
+                      child:Padding(
                       padding: const EdgeInsets.all(15),
                       child: Text(occupant_m.getFromOrder(myHouse.occupants, order),
                           style:
-                              const TextStyle(fontSize: 15, fontWeight: FontWeight.w100)))  
+                              const TextStyle(fontSize: 15, fontWeight: FontWeight.w100))))  
             ])
             )
             ])
@@ -185,10 +187,10 @@ Widget build(BuildContext context) {
                   mainAxisAlignment:MainAxisAlignment.spaceBetween,
                   children: [
                     const Row(children: [Padding(
-                      padding: EdgeInsets.all(10),
+                      padding: EdgeInsets.fromLTRB(10,0,10,10),
                       child:Checkbox.adaptive(value: false, onChanged:null,
                        )),Padding(
-                      padding: EdgeInsets.all(10),
+                      padding: EdgeInsets.fromLTRB(10,0,10,10),
                       child:Icon(Icons.edit_rounded)
                       ,)],),
                       Expanded(

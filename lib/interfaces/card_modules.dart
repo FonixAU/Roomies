@@ -40,6 +40,7 @@ Widget build(BuildContext context) {
                   )),
                 child: Text(frequency,style:const TextStyle(color: Colors.white,fontWeight: FontWeight.w100)),
                 ),Container(
+                width: double.infinity,
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -47,24 +48,22 @@ Widget build(BuildContext context) {
                     bottomRight: Radius.circular(10),
                   )
                 ),  
-                child:Row(
-                  mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                child:Wrap(
+                  alignment: WrapAlignment.spaceBetween,
                   children: [
-                    Expanded( 
-                      child:Padding(
+                      Padding(
                       padding: const EdgeInsets.all(15),
                       child: Text(name,
                           style:
-                              const TextStyle(fontSize: 20, fontWeight: FontWeight.w100)))),
-                    Expanded( 
-                      child:Padding(
+                              const TextStyle(fontSize: 20, fontWeight: FontWeight.w100)))
+                    ,Padding(
                       padding: const EdgeInsets.all(15),
                       child: Text(occupant_m.getFromOrder(myHouse.occupants, order),
                           style:
-                              const TextStyle(fontSize: 15, fontWeight: FontWeight.w100))))  
-            ])
+                              const TextStyle(fontSize: 15, fontWeight: FontWeight.w100)))  
+                ])
             )
-            ])
+        ])
           ));}
 }
 

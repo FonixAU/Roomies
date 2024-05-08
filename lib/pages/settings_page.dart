@@ -6,6 +6,7 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // bool option = true; needs to be stateful
     return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: true,
@@ -20,10 +21,13 @@ class SettingsPage extends StatelessWidget {
             child: ElevatedButton(
             onPressed: () => context.go("/"),
             child: const Text("Add Resident"))),
-            ElevatedButton(
-            onPressed: () => context.go("/"),
-            child: const Text("Go to Settings"),
-          ),
+            // Switch(
+            // value: option,
+            // onChanged: (value) {
+            //   setState(() {
+            //       option = value;
+            //     });},
+            // ),
         ])]));
   }
 }

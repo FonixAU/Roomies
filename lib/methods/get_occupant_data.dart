@@ -6,6 +6,13 @@ List<String> getNames(List<Occupant> occupants){
   }
   return names;
 }
+List<int> getOrders(List<Occupant> occupants){
+  List<int> orders = List.empty(growable: true);
+  for(Occupant occupant in occupants){
+    orders.add(occupant.order);
+  }
+  return orders;
+}
 List<String> getEmails(List<Occupant> occupants){
   List<String> email = List.empty(growable: true);
   for(Occupant occupant in occupants){

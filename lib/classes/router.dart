@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:myapp/classes/house_hold.dart';
 import '../pages/repeatable/repeatable_screen.dart';
 import '../pages/repeatable/edit_screen.dart';
 import '../pages/settings_page.dart';
 import '../pages/bills_page.dart';
+import '../pages/repeatable/filter_screen.dart';
 import '../interfaces/navbar.dart';
 import '../pages/home_page.dart';
 import '../pages/chores_page.dart';
 import '../classes/user.dart';
+import '../methods/fetch_data.dart';
 // import '../classes/house_hold.dart';
 
 // private navigators
@@ -24,6 +27,7 @@ final _shellNavigatorSettingsKey =
     GlobalKey<NavigatorState>(debugLabel: 'shellSettings');
 
 const User user = User(email:"jane.doe@gmail.com" ,name:"Jane Doe",houseID:1 ,order: 2);
+HouseHold house = getHouse();
 
 final goRouter = GoRouter(
   
@@ -71,7 +75,7 @@ final goRouter = GoRouter(
                 ),
                 routes: [
                   GoRoute(
-                    path: 'details/add',
+                    path: 'add',
                     builder: (context, state) =>
                         const EditScreen(label: 'Bills'),
                   ),
@@ -89,9 +93,14 @@ final goRouter = GoRouter(
                 ),
                 routes: [
                   GoRoute(
-                    path: 'chores/add',
+                    path: 'add',
                     builder: (context, state) =>
                         const EditScreen(label: 'Chores'),
+                  ),
+                  GoRoute(
+                    path: 'filter',
+                    builder: (context, state) =>
+                        const FilterScreen(label: 'Chores', occupants:[]),
                   ),
                 ],
               ),

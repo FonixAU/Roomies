@@ -202,9 +202,9 @@ Widget build(BuildContext context) {
                           borderRadius: BorderRadius.circular(50)),
                         child:Padding(
                           padding:const EdgeInsets.fromLTRB(15,10,15,10),
-                          child:Row(
-                            mainAxisAlignment:MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
+                          child:Wrap(
+                            alignment:WrapAlignment.spaceBetween,
+                            crossAxisAlignment: WrapCrossAlignment.center,
                             children:[
                             Text(owedMessage,
                           style:

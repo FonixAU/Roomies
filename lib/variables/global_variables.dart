@@ -37,7 +37,7 @@ Map<String, dynamic> jsonTest = {
   "occupants": [
     {"name": "John Doe", "email": "john.doe@example.com", "order": 1},
     {"name": "Jane Doe", "email": "jane.doe@example.com", "order": 2},
-    {"name": "Jane Doe", "email": "jane.doe@example.com", "order": 3},
+    {"name": "Jane Dove", "email": "jane.doe@example.com", "order": 3},
   ],
   "sharedItems": [
     {"name": "Paper Towels", "lastPurchasedBy": "John Doe", "notes": ""},

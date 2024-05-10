@@ -22,9 +22,10 @@ class BillsPage extends StatefulWidget {
 class BillsPageState extends State<BillsPage> {
   HouseHold myHouse = getHouse();
   @override
-  Widget build(BuildContext context,) {
+  Widget build(
+    BuildContext context,
+  ) {
     User user = widget.user;
-    String myHouseName = myHouse.householdName;
     List<String> names = getNames(myHouse.bills);
     List<String> frequencies = getFrequency(myHouse.bills);
     List<int> nominees = getNominees(myHouse.bills);
@@ -37,32 +38,30 @@ class BillsPageState extends State<BillsPage> {
     return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: true,
-          title: Text("$myHouseName: Bills"),
+          title: const Text("Bills"),
         ),
         body: Center(
-          child: CustomScrollView(
-            slivers: <Widget>[
-              SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                    (context, index) =>
-                    BillCard(name:names[index],
-                        nominee:nominees[index],
-                        frequency:frequencies[index],
-                        totalAmount: totalAmount[index],
-                        dueDate: dueDates[index],
-                        myHouse: myHouse,
-                        user: user,
-                        totalOwed: totalOwed[index],
-                        owedPP: owedPP[index],
-                        freqColor: freqColors[index],
-                      ),
-                  childCount: names.length,
-                  ),
+            child: CustomScrollView(
+          slivers: <Widget>[
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) => BillCard(
+                  name: names[index],
+                  nominee: nominees[index],
+                  frequency: frequencies[index],
+                  totalAmount: totalAmount[index],
+                  dueDate: dueDates[index],
+                  myHouse: myHouse,
+                  user: user,
+                  totalOwed: totalOwed[index],
+                  owedPP: owedPP[index],
+                  freqColor: freqColors[index],
                 ),
-              
+                childCount: names.length,
+              ),
+            ),
           ],
-          )
-        ),
+        )),
         floatingActionButton: Align(
             alignment: Alignment.bottomLeft,
             child: Padding(
@@ -75,7 +74,7 @@ class BillsPageState extends State<BillsPage> {
                           onPressed: () => context.go('names/add'),
                           style: ElevatedButton.styleFrom(
                               padding: const EdgeInsets.only(left: -10),
-                              minimumSize:const  Size.square(minCalendarSize),
+                              minimumSize: const Size.square(minCalendarSize),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(
                                     10), // Adjust the value as needed

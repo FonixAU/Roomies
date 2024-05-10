@@ -184,6 +184,7 @@ Widget build(BuildContext context) {
                               ))  
             ])
                 ),
+        //Second Half Of Card
                 const Divider(
                   indent: 10,
                   endIndent: 10,
@@ -199,13 +200,16 @@ Widget build(BuildContext context) {
                 child:Row(
                   mainAxisAlignment:MainAxisAlignment.spaceBetween,
                   children: [
-                    const Row(children: [Padding(
+                    const Row(children: 
+                    //Buttons
+                    [Padding(
                       padding: EdgeInsets.fromLTRB(10,0,10,10),
                       child:Checkbox.adaptive(value: false, onChanged:null,
                        )),Padding(
                       padding: EdgeInsets.fromLTRB(10,0,10,10),
                       child:Icon(Icons.edit_rounded)
                       ,)],),
+                      //Modular Owing Bubble
                       Expanded(
                         flex:2,
                         child:Padding(

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:myapp/classes/house_hold.dart';
 import '../../classes/occupant.dart';
 import '../../methods/get_occupant_data.dart';
-import '../../pages/chores_page.dart';
 //For Testing
 import '../../methods/fetch_data.dart';
 

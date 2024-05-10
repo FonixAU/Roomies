@@ -47,7 +47,7 @@ class FilterScreenState extends State<FilterScreen> {
           children: <Widget>[
             Text('Selected Filter: ${nameList[dropdownValue]}',
                 style: Theme.of(context).textTheme.titleLarge),
-            const Padding(padding: EdgeInsets.all(4)),
+            const Padding(padding: EdgeInsets.fromLTRB(4,0,4,20)),
             DropdownButton<int>(
                value: dropdownValue,
                 elevation: 16,
@@ -70,14 +70,16 @@ class FilterScreenState extends State<FilterScreen> {
                 }).toList(),
               ),
             
-            OutlinedButton(
+            Padding(
+              padding:const EdgeInsets.only(top: 15),
+              child: OutlinedButton(
               onPressed: () {
                 Navigator.pop(
                 context,dropdownValue,
                 );
               },
               child: const Text('Save Filter'),
-            ),
+            )),
 
           ],
         ),

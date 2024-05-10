@@ -31,15 +31,29 @@ Widget build(BuildContext context) {
             children: [
                 Container(
                   width: double.infinity,
-                  padding:const EdgeInsets.all(10),
+                  padding:const EdgeInsets.fromLTRB(10,5,5,5),
                   decoration: BoxDecoration(
                     color: color,
                     borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(10),
                     topRight: Radius.circular(10),
                   )),
-                child: Text(frequency,style:const TextStyle(color: Colors.white,fontWeight: FontWeight.w100)),
-                ),Container(
+                child: Wrap(
+                  alignment: WrapAlignment.spaceBetween,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  children: [
+                    Text(frequency,style:const TextStyle(color: Colors.white,fontWeight: FontWeight.w400, fontSize:15)),
+                    Wrap(
+                      alignment: WrapAlignment.spaceBetween,
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      children:[IconButton(
+                      icon: const Icon(Icons.edit_rounded, color:Colors.white),
+                      onPressed: () => {},),
+                      IconButton(
+                      icon: const Icon(Icons.task_alt_rounded, color:Colors.white),
+                      onPressed: () => {},)])
+              ])
+            ),Container(
                 width: double.infinity,
                 decoration: const BoxDecoration(
                   color: Colors.white,

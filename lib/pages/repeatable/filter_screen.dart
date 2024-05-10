@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myapp/classes/house_hold.dart';
 import '../../classes/occupant.dart';
 import '../../methods/get_occupant_data.dart';
+import '../../pages/chores_page.dart';
 //For Testing
 import '../../methods/fetch_data.dart';
 
@@ -44,12 +45,11 @@ class FilterScreenState extends State<FilterScreen> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            Text('Filter $orderList[1]',
+            Text('Selected Filter: ${nameList[dropdownValue]}',
                 style: Theme.of(context).textTheme.titleLarge),
             const Padding(padding: EdgeInsets.all(4)),
             DropdownButton<int>(
                value: dropdownValue,
-                icon: const Icon(Icons.arrow_downward),
                 elevation: 16,
                 style: const TextStyle(color: Colors.deepPurple),
                 underline: Container(
@@ -65,24 +65,19 @@ class FilterScreenState extends State<FilterScreen> {
               items: orderList.map<DropdownMenuItem<int>>((int value) {
                   return DropdownMenuItem<int>(
                     value: value,
-                    child: Text(nameList[value]),
+                    child: Text(" ${nameList[value]}"),
                   );
                 }).toList(),
               ),
-            Text('Sort',
-                style: Theme.of(context).textTheme.titleLarge),
-            const Padding(padding: EdgeInsets.all(4)),
-            // TextButton(
-            //   onPressed: () {
-            //     Navigator.push(
-            //     context,
-            //     MaterialPageRoute(
-            //       builder: (context) => SecondScreen(text: textToSend,),
-            //     ));
-                      
-            //   },
-            //   child: const Text('Increment counter'),
-            // ),
+            
+            OutlinedButton(
+              onPressed: () {
+                Navigator.pop(
+                context,dropdownValue,
+                );
+              },
+              child: const Text('Save Filter'),
+            ),
 
           ],
         ),

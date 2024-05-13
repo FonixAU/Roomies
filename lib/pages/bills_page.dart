@@ -37,9 +37,28 @@ class BillsPageState extends State<BillsPage> {
 
     return Scaffold(
         appBar: AppBar(
-          automaticallyImplyLeading: true,
-          title: const Text("Bills"),
-        ),
+            automaticallyImplyLeading: true,
+            title: const Text("Bills"),
+            actions: [
+              Padding(
+                  padding: const EdgeInsets.only(right: 16),
+                  child: IconButton(
+                      onPressed: () {
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //     builder: (context) =>const  EditScreen(label: 'Bills'),
+                        //   ));
+                      },
+                      icon: const Icon(Icons.add_rounded))),
+              Padding(
+                  padding: const EdgeInsets.only(right: 16),
+                  child: IconButton(
+                      onPressed: () {
+                        // _navToFilter(context);
+                      },
+                      icon: const Icon(Icons.filter_alt_rounded)))
+            ]),
         body: Center(
             child: CustomScrollView(
           slivers: <Widget>[

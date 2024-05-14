@@ -46,7 +46,11 @@ Widget build(BuildContext context) {
                     Wrap(
                       alignment: WrapAlignment.spaceBetween,
                       crossAxisAlignment: WrapCrossAlignment.center,
-                      children:[IconButton(
+                      children:[
+                      IconButton(
+                      icon: const Icon(Icons.notifications_active_rounded, color:Colors.white),
+                      onPressed: () => {},),
+                      IconButton(
                       icon: const Icon(Icons.edit_rounded, color:Colors.white),
                       onPressed: () => {},),
                       IconButton(

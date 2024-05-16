@@ -26,7 +26,7 @@ final _shellNavigatorShopKey =
 final _shellNavigatorSettingsKey =
     GlobalKey<NavigatorState>(debugLabel: 'shellSettings');
 
-const User user = User(email:"jane.doe@gmail.com" ,name:"Jane Doe",houseID:1 ,order: 2);
+const User user = User(surname:"Doe" ,name:"Jane",houseID:1 ,order: 2);
 HouseHold house = getHouse();
 
 final goRouter = GoRouter(

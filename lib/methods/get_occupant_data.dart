@@ -13,12 +13,12 @@ List<int> getOrders(List<Occupant> occupants){
   }
   return orders;
 }
-List<String> getEmails(List<Occupant> occupants){
-  List<String> email = List.empty(growable: true);
+List<String> getSurnames(List<Occupant> occupants){
+  List<String> surname = List.empty(growable: true);
   for(Occupant occupant in occupants){
-    email.add(occupant.email);
+    surname.add(occupant.surname);
   }
-  return email;
+  return surname;
 }
 String getFromOrder(List<Occupant> occupants, int order){
   String fromOrder = "Not Assigned";

@@ -245,3 +245,83 @@ Widget build(BuildContext context) {
             ])
           ));}
 }
+
+class SharedItemCard extends StatelessWidget {
+  const SharedItemCard({
+    super.key,
+    required this.name,
+    required this.order,
+    required this.color,
+    required this.frequency,
+    required this.myHouse,    
+  });
+final String name; 
+final int order;
+final Color color;
+final String frequency;
+final HouseHold myHouse;
+@override 
+Widget build(BuildContext context) {
+    return (Card(
+        clipBehavior: Clip.antiAlias,
+        margin: const EdgeInsets.fromLTRB(15, 5, 15, 5),
+        elevation: 3,
+        child:
+        Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+                Container(
+                  width: double.infinity,
+                  padding:const EdgeInsets.fromLTRB(10,5,5,5),
+                  decoration: BoxDecoration(
+                    color: color,
+                    borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(10),
+                    topRight: Radius.circular(10),
+                  )),
+                child: Wrap(
+                  alignment: WrapAlignment.spaceBetween,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  children: [
+                    Text(frequency,style:const TextStyle(color: Colors.white,fontWeight: FontWeight.w400, fontSize:15)),
+                    Wrap(
+                      alignment: WrapAlignment.spaceBetween,
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      children:[
+                      IconButton(
+                      icon: const Icon(Icons.notifications_active_rounded, color:Colors.white),
+                      onPressed: () => {},),
+                      IconButton(
+                      icon: const Icon(Icons.edit_rounded, color:Colors.white),
+                      onPressed: () => {},),
+                      IconButton(
+                      icon: const Icon(Icons.task_alt_rounded, color:Colors.white),
+                      onPressed: () => {},)])
+              ])
+            ),Container(
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(10),
+                    bottomRight: Radius.circular(10),
+                  )
+                ),  
+                child:Wrap(
+                  alignment: WrapAlignment.spaceBetween,
+                  children: [
+                      Padding(
+                      padding: const EdgeInsets.all(15),
+                      child: Text(name,
+                          style:
+                              const TextStyle(fontSize: 20, fontWeight: FontWeight.w100)))
+                    ,Padding(
+                      padding: const EdgeInsets.all(15),
+                      child: Text(occupant_m.getFromOrder(myHouse.occupants, order),
+                          style:
+                              const TextStyle(fontSize: 15, fontWeight: FontWeight.w100)))  
+                ])
+            )
+        ])
+          ));}
+}

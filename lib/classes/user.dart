@@ -1,12 +1,12 @@
 class User<T> {
   final String name;
-  final String email;
+  final String surname;
   final int houseID;
   final int order;
 
   const User({
     required this.name,
-    required this.email,
+    required this.surname,
     required this.houseID,
     required this.order,
   });
@@ -14,7 +14,7 @@ class User<T> {
   factory User.fromJson(Map<String, dynamic> json) {
     return User<T>(
       name: json['name'],
-      email: json['email'],
+      surname: json['surname'],
       houseID: json['houseID'],
       order: json['order']
     );

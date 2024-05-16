@@ -23,6 +23,14 @@ const List<String> frequencyList = [
   "Quarterly",
   "Yearly"
 ];
+const List<String> categoryList = [
+  "Kitchen",
+  "Bathroom",
+  "Laundry",
+  "Cleaning",
+  "Outdoor",
+  "Other"
+];
 const List<Color> frequencyColor = [
   Colors.green,
   Colors.blue,
@@ -34,15 +42,17 @@ const List<Color> frequencyColor = [
 
 Map<String, dynamic> jsonTest = {
   "householdName": "My Household",
+  "householdID": "id1",
   "occupants": [
-    {"name": "John Doe", "email": "john.doe@example.com", "order": 1},
-    {"name": "Jane Doe", "email": "jane.doe@example.com", "order": 2},
-    {"name": "Jane Dove", "email": "jane.doe@example.com", "order": 3},
+    {"userID":"m2NWSG5FCmRnuZxJ9IoqTug2cuC3","name": "John","surname": "Doe", "order": 1},
+    {"userID":"2","name": "Jane","surname": "Dove", "order": 2},
+    {"userID":"3","name": "Jane","surname": "Dole", "order": 3},
   ],
   "sharedItems": [
-    {"name": "Paper Towels", "lastPurchasedBy": "John Doe", "notes": ""},
-    {"name": "Toilet Paper", "lastPurchasedBy": "Jane Doe", "notes": ""},
-    {"name": "Toilet Paper", "lastPurchasedBy": "Jane Doe", "notes": ""}
+    {"name": "Paper Towels", "lastPurchasedBy": 3, "category": "Kitchen", "notes": ""},
+    {"name": "Toilet Paper", "lastPurchasedBy": 1, "category": "Bathroom", "notes": ""},
+    {"name": "Salt", "lastPurchasedBy": 1, "category": "Kitchen", "notes": ""},
+    {"name": "Disinfectant Wipes", "lastPurchasedBy": 2, "category": "Cleaning", "notes": ""}
   ],
   "chores": [
     {"name": "Dishes", "frequency": "Weekly", "currentOrder": 1},

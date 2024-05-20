@@ -1,13 +1,1 @@
-{
-  "hosting": {
-    "source": ".",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "frameworksBackend": {
-      "region": "asia-east1"
-    }
-  }
-}
+{"hosting":{"source":".","ignore":["firebase.json","**/.*","**/node_modules/**"],"frameworksBackend":{"region":"asia-east1"}},"flutter":{"platforms":{"android":{"default":{"projectId":"roomies-a4d00","appId":"1:219675563964:android:88592e62cc5262bfa67db9","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"roomies-a4d00","configurations":{"android":"1:219675563964:android:88592e62cc5262bfa67db9","ios":"1:219675563964:ios:1f861f8f36c2c6fca67db9","macos":"1:219675563964:ios:1f861f8f36c2c6fca67db9","web":"1:219675563964:web:9a418d70bead1a13a67db9","windows":"1:219675563964:web:1495727fe0d5b142a67db9"}}}}}}

@@ -66,7 +66,7 @@ class ChorePageState extends State<ChorePage> {
           title: const Text("Chores"),
           actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 16),
+            padding: const EdgeInsets.only(right: 8),
             child: IconButton(
             onPressed: (){
               Navigator.push(
@@ -76,7 +76,7 @@ class ChorePageState extends State<ChorePage> {
                 ));},
             icon: const Icon(Icons.add_rounded))),
             Padding(
-            padding: const EdgeInsets.only(right: 16),
+            padding: const EdgeInsets.only(right: 8),
             child: IconButton(
             onPressed: (){
               _navToFilter(context);

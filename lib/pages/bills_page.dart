@@ -41,7 +41,7 @@ class BillsPageState extends State<BillsPage> {
             title: const Text("Bills"),
             actions: [
               Padding(
-                  padding: const EdgeInsets.only(right: 16),
+                  padding: const EdgeInsets.only(right: 8),
                   child: IconButton(
                       onPressed: () {
                         // Navigator.push(
@@ -52,7 +52,7 @@ class BillsPageState extends State<BillsPage> {
                       },
                       icon: const Icon(Icons.add_rounded))),
               Padding(
-                  padding: const EdgeInsets.only(right: 16),
+                  padding: const EdgeInsets.only(right: 8),
                   child: IconButton(
                       onPressed: () {
                         // _navToFilter(context);

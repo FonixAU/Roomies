@@ -49,10 +49,10 @@ Map<String, dynamic> jsonTest = {
     {"userID":"3","name": "Jane","surname": "Dole", "order": 3},
   ],
   "sharedItems": [
-    {"name": "Paper Towels", "lastPurchasedBy": 3, "category": "Kitchen", "notes": ""},
-    {"name": "Toilet Paper", "lastPurchasedBy": 1, "category": "Bathroom", "notes": ""},
-    {"name": "Salt", "lastPurchasedBy": 1, "category": "Kitchen", "notes": ""},
-    {"name": "Disinfectant Wipes", "lastPurchasedBy": 2, "category": "Cleaning", "notes": ""}
+    {"name": "Paper Towels", "order": 3, "category": "Kitchen", "notes": ""},
+    {"name": "Toilet Paper", "order": 1, "category": "Bathroom", "notes": ""},
+    {"name": "Salt", "order": 1, "category": "Kitchen", "notes": ""},
+    {"name": "Disinfectant Wipes", "order": 2, "category": "Cleaning", "notes": ""}
   ],
   "chores": [
     {"name": "Dishes", "frequency": "Weekly", "currentOrder": 1},

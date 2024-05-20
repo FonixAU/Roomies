@@ -19,7 +19,7 @@ class AuthFunc extends StatelessWidget {
     return Row(
       children: [
         Padding(
-          padding: const EdgeInsets.only(right: 16),
+          padding: const EdgeInsets.only(right:8),
           child: IconButton(
               onPressed: () {
                 !loggedIn ? context.push('/sign-in') : signOut();
@@ -29,7 +29,7 @@ class AuthFunc extends StatelessWidget {
          Visibility(
             visible: loggedIn,
             child: Padding(
-              padding: const EdgeInsets.only(right: 16),
+              padding: const EdgeInsets.only(right:8),
               child: IconButton(
                   onPressed: () {
                     context.push('/profile');

@@ -13,7 +13,6 @@ import '../classes/user.dart';
 import '../methods/fetch_data.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 // import '../classes/house_hold.dart';
-
 // private navigators
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _shellNavigatorHomeKey =
@@ -29,9 +28,7 @@ final _shellNavigatorSettingsKey =
 
 const User user = User(surname:"Doe" ,name:"Jane",houseID:1 ,order: 2);
 HouseHold house = getHouse();
-
 final goRouter = GoRouter(
-  
     initialLocation: '/',
     // * Passing a navigatorKey causes an issue on hot reload:
     // * https://github.com/flutter/flutter/issues/113757#issuecomment-1518421380

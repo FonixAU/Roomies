@@ -22,7 +22,7 @@ class ScaffoldWithNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: body,
-      bottomNavigationBar: NavigationBar(
+      bottomNavigationBar:NavigationBar(
         selectedIndex: selectedIndex,
         destinations: const [
           NavigationDestination(label: 'Home', icon: Icon(Icons.home)),

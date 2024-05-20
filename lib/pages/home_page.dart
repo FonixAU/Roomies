@@ -1,4 +1,12 @@
-import 'package:flutter/material.dart';
+//Auth Packages:
+import 'package:firebase_auth/firebase_auth.dart' // new
+    hide EmailAuthProvider, PhoneAuthProvider;    // new
+import 'package:flutter/material.dart';           // new
+import 'package:provider/provider.dart';          // new
+
+import '../app_state.dart';                          // new
+import '../src/authentication.dart';
+
 // import '../classes/user.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myapp/classes/house_hold.dart';
@@ -26,9 +34,16 @@ class HomePageState extends State<HomePage> {
         appBar: AppBar(
           automaticallyImplyLeading: true,
           title: Text(myHouseName),
+          actions: [Consumer<ApplicationState>(
+            builder: (context, appState, _) => AuthFunc(
+                loggedIn: appState.loggedIn,
+                signOut: () {
+                  FirebaseAuth.instance.signOut();
+                }),
+          ),],
         ),
         body: 
-              Container(
+            Container(
               alignment: Alignment.center,  
               child:
               ListView.builder(
@@ -56,7 +71,8 @@ class HomePageState extends State<HomePage> {
                                     10), // Adjust the value as needed
                               )),
                           child: const Icon(Icons.calendar_month_rounded)),
-                    )))));
+                    )))
+                ));
   }
   Widget _residentBlocks(BuildContext context, String name) {
     return (Row(children: [Container(

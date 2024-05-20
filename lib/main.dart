@@ -1,4 +1,9 @@
-import 'package:flutter/material.dart';
+//Login Functionality
+
+import 'package:flutter/material.dart';              // new
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';                 // new
+import 'app_state.dart';   
 // ignore: depend_on_referenced_packages
 import 'package:flutter_web_plugins/url_strategy.dart';
 //Import Any Supporting Files
@@ -12,7 +17,12 @@ void main() {
 );
   // turn off the # in the URLs on the web
   usePathUrlStrategy();
-  runApp(const Roomies());
+  WidgetsFlutterBinding.ensureInitialized();
+
+  runApp(ChangeNotifierProvider(
+    create: (context) => ApplicationState(),
+    builder: ((context, child) => const Roomies()),
+  ));
 }
 
 class Roomies extends StatelessWidget {
@@ -21,11 +31,20 @@ class Roomies extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      title:"Roomies",
       routerConfig: goRouter,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.purpleAccent
-      )         
+        buttonTheme: Theme.of(context).buttonTheme.copyWith(
+              highlightColor: Colors.deepPurple,
+            ),
+        primarySwatch: Colors.deepPurple,
+        textTheme: GoogleFonts.robotoTextTheme(
+          Theme.of(context).textTheme,
+        ),
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        useMaterial3: true,
+      ),         
         );
   }
 }

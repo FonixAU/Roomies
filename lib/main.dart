@@ -12,11 +12,11 @@ void main() {
 );
   // turn off the # in the URLs on the web
   usePathUrlStrategy();
-  runApp(const MyApp());
+  runApp(const Roomies());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Roomies extends StatelessWidget {
+  const Roomies({super.key});
 
   @override
   Widget build(BuildContext context) {

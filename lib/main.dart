@@ -3,8 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 //Import Any Supporting Files
 import './classes/router.dart';
-
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 void main() {
+  //Initialising Firebase
+  Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+);
   // turn off the # in the URLs on the web
   usePathUrlStrategy();
   runApp(const MyApp());

@@ -11,7 +11,10 @@ import '../pages/home_page.dart';
 import '../pages/chores_page.dart';
 import '../classes/user.dart';
 import '../methods/fetch_data.dart';
+//Auth Packages
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
+import '../app_state.dart';
+// import 'package:provider/provider.dart';
 // import '../classes/house_hold.dart';
 // private navigators
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -28,7 +31,8 @@ final _shellNavigatorSettingsKey =
 
 const User user = User(surname:"Doe" ,name:"Jane",houseID:1 ,order: 2);
 HouseHold house = getHouse();
-final goRouter = GoRouter(
+GoRouter createRouter(ApplicationState appState) {
+  return GoRouter(
     initialLocation: '/',
     // * Passing a navigatorKey causes an issue on hot reload:
     // * https://github.com/flutter/flutter/issues/113757#issuecomment-1518421380
@@ -36,11 +40,21 @@ final goRouter = GoRouter(
     // * root on hot reload
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
+    redirect: (context, state) {
+      final loggedIn = appState.loggedIn;
+      final loggingIn = state.path == '/sign-in';
+
+      if (!loggedIn && !loggingIn) return '/sign-in';
+      if (loggedIn && loggingIn) return '/';
+
+      return null;
+    },
     routes: [
       // Stateful navigation based on:
       // https://github.com/flutter/packages/blob/main/packages/go_router/example/lib/stateful_shell_route.dart
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {
+        
           return ScaffoldWithNestedNavigation(navigationShell: navigationShell);
         },
         branches: [
@@ -201,4 +215,4 @@ final goRouter = GoRouter(
           ),
         ],
       )
-    ]);
+    ]);}

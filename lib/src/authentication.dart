@@ -40,3 +40,20 @@ class AuthFunc extends StatelessWidget {
     );
   }
 }
+class AuthRedir extends StatelessWidget {
+  const AuthRedir({
+    super.key,
+  });
+  @override
+  Widget build(BuildContext context) {
+    return Center(child: Padding(
+          padding: const EdgeInsets.only(right:8),
+          child: TextButton(
+              onPressed: () {
+                context.push('/sign-in');
+              },
+              child: const Text("Click Here To Sign-In"),
+        )),
+    );
+  }
+}

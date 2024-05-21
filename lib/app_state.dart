@@ -13,6 +13,9 @@ class ApplicationState extends ChangeNotifier {
 
   bool _loggedIn = false;
   bool get loggedIn => _loggedIn;
+  Stream<bool> get authStateChanges 
+  => FirebaseAuth.instance.authStateChanges().map((user) => user != null);
+
 
   Future<void> init() async {
     await Firebase.initializeApp(

@@ -10,19 +10,25 @@ import 'package:flutter_web_plugins/url_strategy.dart';
 import './classes/router.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-void main() {
-  //Initialising Firebase
-  Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-);
-  // turn off the # in the URLs on the web
-  usePathUrlStrategy();
+void main() async {
+  // Ensuring Widgets are initialized
   WidgetsFlutterBinding.ensureInitialized();
 
-  runApp(ChangeNotifierProvider(
-    create: (context) => ApplicationState(),
-    builder: ((context, child) => const Roomies()),
-  ));
+  // Initializing Firebase
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  // Turn off the # in the URLs on the web
+  usePathUrlStrategy();
+
+  // Run the app with ChangeNotifierProvider for ApplicationState
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ApplicationState(),
+      builder: (context, child) => const Roomies(),
+    ),
+  );
 }
 
 class Roomies extends StatelessWidget {
@@ -30,21 +36,23 @@ class Roomies extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appState = Provider.of<ApplicationState>(context);
+
     return MaterialApp.router(
-      title:"Roomies",
-      routerConfig: goRouter,
+      title: "Roomies",
+      routerConfig: createRouter(appState),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         buttonTheme: Theme.of(context).buttonTheme.copyWith(
-              highlightColor: Colors.deepPurple,
-            ),
+          highlightColor: Colors.deepPurple,
+        ),
         primarySwatch: Colors.deepPurple,
         textTheme: GoogleFonts.robotoTextTheme(
           Theme.of(context).textTheme,
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
         useMaterial3: true,
-      ),         
-        );
+      ),
+    );
   }
 }

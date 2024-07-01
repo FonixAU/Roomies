@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';          // new
 import '../app_state.dart';                          // new
 import '../src/authentication.dart';
 
-// import '../classes/user.dart';
+import '../classes/user.dart'as local_users;
 import 'package:go_router/go_router.dart';
 import 'package:myapp/classes/house_hold.dart';
 import 'package:myapp/methods/get_occupant_data.dart';
@@ -17,7 +17,9 @@ class HomePage extends StatefulWidget {
   /// Constructs a [HomePage].
   const HomePage({
     super.key,
+    required this.user,
   });
+  final local_users.User user;
   @override
   State<StatefulWidget> createState() => HomePageState();
 }
@@ -28,6 +30,9 @@ class HomePageState extends State<HomePage> {
     HouseHold myHouse = getHouse();
     String myHouseName = myHouse.householdName;
     List<String> names = getNames(myHouse.occupants);
+
+    local_users.User user = widget.user;
+    String userName = user.name;
 
     return Scaffold(
         appBar: AppBar(
@@ -41,7 +46,13 @@ class HomePageState extends State<HomePage> {
                 }),
           ),],
         ),
-        body: 
+        body: Row(children:[
+            Container(
+              alignment: Alignment.center,
+              child:
+            Text(userName
+              ), 
+            ),
             Container(
               alignment: Alignment.center,  
               child:
@@ -51,7 +62,7 @@ class HomePageState extends State<HomePage> {
                   itemBuilder: (context, index) =>
                       _residentBlocks(context, names[index])
                       )
-              ),
+              ),]),
         floatingActionButton: Align(
             alignment: Alignment.bottomLeft,
             child: Padding(

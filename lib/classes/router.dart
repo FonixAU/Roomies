@@ -15,6 +15,12 @@ import '../methods/fetch_data.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import '../app_state.dart';
 // import 'package:provider/provider.dart';
+
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:1001919114.
+//Database Packages
+
+// import 'package:firebase_core/firebase_core.dart';
+
 // import '../classes/house_hold.dart';
 // private navigators
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -29,10 +35,13 @@ final _shellNavigatorShopKey =
 final _shellNavigatorSettingsKey =
     GlobalKey<NavigatorState>(debugLabel: 'shellSettings');
 
-const User user = User(surname:"Doe" ,name:"Jane",houseID:1 ,order: 2);
+//Private Methods
 HouseHold house = getHouse();
+User user = const User(name:"name" ,houseID:"house", order:1);
 GoRouter createRouter(ApplicationState appState) {
-  return GoRouter(
+  // ignore: prefer_const_constructors
+  
+ return GoRouter(
     initialLocation: '/',
     // * Passing a navigatorKey causes an issue on hot reload:
     // * https://github.com/flutter/flutter/issues/113757#issuecomment-1518421380
@@ -63,8 +72,8 @@ GoRouter createRouter(ApplicationState appState) {
             routes: [
               GoRoute(
                 path: '/',
-                pageBuilder: (context, state) => const NoTransitionPage(
-                  child: HomePage(),
+                pageBuilder: (context, state) => NoTransitionPage(
+                  child: HomePage(user: user ),
                 ),
                 routes: [
                   GoRoute(
@@ -144,7 +153,7 @@ GoRouter createRouter(ApplicationState appState) {
             routes: [
               GoRoute(
                 path: '/bills',
-                pageBuilder: (context, state) => const NoTransitionPage(
+                pageBuilder: (context, state) => NoTransitionPage(
                   child:
                       BillsPage(user: user),  
                 ),
